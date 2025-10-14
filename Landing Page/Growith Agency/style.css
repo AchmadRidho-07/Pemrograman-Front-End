@@ -1,0 +1,74 @@
+
+.navbar a {
+  color: #ffffff !important;   
+  font-weight: 500;            
+}
+
+.navbar a:hover {
+  color: #f1f1f1 ;   
+}
+
+
+.banner {
+  background-image: url("Image/hero 3.png");
+  background-size: contain;    
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;               
+}
+
+
+.card {
+  height: 100%;  
+}
+
+
+.client img {
+  max-height: 50px;
+  height: auto;
+}
+
+.crop-img {
+  object-fit: cover;
+  border-radius: 10px;    
+}
+
+.tentang  {
+  margin-left: 30px;      
+  margin-bottom: 20px;    
+  text-align: left;
+}
+
+
+
+
+.kontak {
+  background: url("Image/kontak.png") no-repeat  center;
+  background-size: cover;
+  padding: 20% 0;  
+  color: #fff;
+}
+
+
+.testimoni-container {
+  display: flex;
+  justify-content: center;  
+  gap: 30px;                
+  flex-wrap: wrap;         
+  margin: 50px auto;
+}
+
+.testimoni {
+  text-align: center;
+  width: 250px;    
+}         
+
+.testimoni img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;       
+  object-fit: cover;       
+  margin-bottom: 15px;
+}
+
+ 
