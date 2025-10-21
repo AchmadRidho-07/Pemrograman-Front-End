@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan 1 - Form Registrasi</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 250px;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #00bfff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0099cc;
+    }
+  </style>
+</head>
+<body>
+  <form id="registrasiForm">
+    <label for="namaDepan">Nama Depan:</label>
+    <input type="text" id="namaDepan" placeholder="Masukkan nama depan" required>
+
+    <label for="namaBelakang">Nama Belakang:</label>
+    <input type="text" id="namaBelakang" placeholder="Masukkan nama belakang" required>
+
+    <button type="button" onclick="tampilkanNama()">Kirim</button>
+  </form>
+
+  <script>
+    function tampilkanNama() {
+      const namaDepan = document.getElementById('namaDepan').value;
+      const namaBelakang = document.getElementById('namaBelakang').value;
+      alert(`Nama Lengkap : ${namaDepan} ${namaBelakang}\n`);
+    
+    }
+  </script>
+</body>
+</html>

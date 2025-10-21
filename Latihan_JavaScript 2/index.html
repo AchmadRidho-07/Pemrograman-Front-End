@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Latihan 2 - Form Registrasi Nilai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      width: 350px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #38bdf8;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #334155;
+      color: #f1f5f9;
+    }
+
+    input:focus {
+      outline: 2px solid #38bdf8;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 8px;
+      color: #0f172a;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Form Registrasi</h2>
+    <form id="formData">
+      <label for="firstName">Nama Depan</label>
+      <input type="text" id="firstName" placeholder="Masukkan nama depan" required>
+
+      <label for="lastName">Nama Belakang</label>
+      <input type="text" id="lastName" placeholder="Masukkan nama belakang" required>
+
+      <label for="nilai">Nilai Angka</label>
+      <input type="number" id="nilai" placeholder="Masukkan nilai (0 - 100)" required>
+
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("formData").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const namaDepan = document.getElementById("firstName").value.trim();
+      const namaBelakang = document.getElementById("lastName").value.trim();
+      const nilai = parseFloat(document.getElementById("nilai").value);
+
+      let huruf = "";
+
+      if (nilai >= 85 && nilai <= 100) huruf = "A";
+      else if (nilai >= 80) huruf = "A-";
+      else if (nilai >= 75) huruf = "B+";
+      else if (nilai >= 70) huruf = "B";
+      else if (nilai >= 65) huruf = "B-";
+      else if (nilai >= 60) huruf = "C+";
+      else if (nilai >= 55) huruf = "C";
+      else if (nilai >= 40) huruf = "D";
+      else huruf = "E";
+
+      console.log(`Nama Lengkap : ${namaDepan} ${namaBelakang}`);
+      console.log(`Nilai Angka  : ${nilai}`);
+      console.log(`Nilai Huruf  : ${huruf}`);
+
+      alert(`Nama Lengkap : ${namaDepan} ${namaBelakang}\nNilai Angka  : ${nilai}\nNilai Huruf  : ${huruf}`);
+    });
+  </script>
+</body>
+</html>
