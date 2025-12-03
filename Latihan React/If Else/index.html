@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+    // Kita akan menulis kode di sini nantinya
+    </script>
+        <script type="text/babel">
+        const app = document.getElementById('app');
+        const root = ReactDOM.createRoot(app);
+        // Sekarang kita bisa menulis seperti HTML biasa!
+        function Header () {
+        return <h1>Phone Data</h1>;
+        }
+
+        // Data awal
+        const phoneData = [
+            { name: "Samsung S24", price: 10000000, discount: 50 },
+            { name: "Samsung A55", price: 5000000, discount: 30 },
+            { name: "Oppo A18", price: 3000000, discount: 42 },
+            { name: "Iphone Xr", price: 10000000, discount: 0 },
+        ];
+
+        // fungsi if-else untuk brand dan os
+        
+        for (let p of phoneData) {
+            const nameLower = p.name.toLowerCase();
+            if (nameLower.includes('Samsung S24')) {
+                p.brand = 'Samsung';
+                p.os = 'Android';
+            } else if (nameLower.includes('Samsung A55')) {
+                p.brand = 'Samsung';
+                p.os = 'Android';
+            } else if (nameLower.includes('Oppo A18')) {
+                p.brand = 'oppo';
+                p.os = 'Android';
+            } else if (nameLower.includes('Iphone Xr')) {
+                p.brand = 'Apple';
+                p.os = 'IOS';
+            } else {
+                p.brand = 'Unknown';
+                p.os = 'Unknown';
+            }
+        }
+
+        function Product({ phone }) {
+            const { name, price, discount = 0, brand, os } = phone;
+            const getImageName = () => {
+                if (name === "Samsung S24") return "Samsung galaxy s24.png";
+                if (name === "Samsung A55") return "samsung a55.png";
+                if (name === "Oppo A18") return "oppo a18.png";
+                if (name === "Iphone XR") return "xr.png";
+                return "xr.png";
+            };
+
+            return (
+                <div>
+                    <h2>{name}</h2>
+                    <p><i>{brand}</i></p>
+                    <img src={getImageName()} width="200" />
+                    <p><s>Rp {price}</s> ({discount}%)</p>
+                    <p><b>Rp {parseInt(price) - parseInt(price) * (parseInt(discount) / 100)}</b></p>
+                    <p>OS: {os}</p>
+                    <hr />
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <div>
+                    <Header />
+                    {phoneData.map((phone, index) => (
+                        <Product key={index} phone={phone} />
+                    ))}
+                </div>
+            );
+        }
+
+        root.render(<App />);
+        </script>
+
+</body>
+</html>
