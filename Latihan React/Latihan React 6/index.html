@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Perbaikan: tag viewport yang benar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tombol Like TikTok</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <!-- React dan React DOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel untuk transpiling JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        function TikTokButton() {
+            const [likes, setLikes] = React.useState(15400);
+            const [isLiked, setIsLiked] = React.useState(false);
+
+            function handleTap() {
+                if (isLiked) {
+                    setLikes(likes - 1);
+                } else {
+                    setLikes(likes + 1);
+                }
+                setIsLiked(!isLiked);
+            }
+
+            return (
+                <div style={{ fontFamily: 'sans-serif', textAlign: 'center', marginTop: '50px' }}>
+                    <h1>Video Kucing Lucu 🐱</h1>
+                    <button
+                        onClick={handleTap}
+                        style={{
+                            backgroundColor: isLiked ? '#fe2c55' : '#eee',
+                            color: isLiked ? 'white' : 'black',
+                            border: 'none',
+                            padding: '15px 30px',
+                            borderRadius: '50px',
+                            fontSize: '20px',
+                            fontWeight: 'bold',
+                            cursor: 'pointer',
+                            transition: '0.3s'
+                        }}
+                    >
+                        {isLiked ? '❤️ Liked' : '♡ Like'} | {likes.toLocaleString()}
+                    </button>
+                </div>
+            );
+        }
+
+        // Perbaikan penting: Render komponen ke DOM
+        const root = ReactDOM.createRoot(document.getElementById('app'));
+        root.render(<TikTokButton />);
+    </script>
+</body>
+</html>
